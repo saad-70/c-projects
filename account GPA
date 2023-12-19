@@ -1,0 +1,55 @@
+ 	#include <iostream>
+
+using namespace std;
+
+int main(){
+	double GPA;
+	int sum;
+	sum =0.0; 
+	double hourst;
+	hourst = 0.0;
+	double pointst  ;
+	int courses;
+	
+		cout<<"number of courses:";
+	cin>>courses;
+
+	int i=0;
+while(i< courses ){
+
+
+		int hours;
+		cout<<"hours:";
+		cin>>hours;
+		
+		 char grade;
+			cout<<"grade (A, B, C, D, F): ";
+			cin>>grade;
+        
+        double points;
+       
+        if (grade == 'A') {
+            points = 5.0;
+        } else if (grade == 'B') {
+            points = 4.0;
+        } else if (grade == 'C') {
+            points = 3.0;
+        } else if (grade == 'D') {
+            points = 2.0;
+        } else if (grade == 'F') {
+            points = 1.0;
+        }
+		else {cout <<"error enter gradr A,B,C,D,F"<<endl;
+		 continue;
+	          
+    	}	i++;
+
+     
+     hourst+= hours;
+    sum+=points*hours;
+    GPA=sum/ hourst;
+    
+} cout<<"GPA:"<<GPA;
+return 0;
+
+}
