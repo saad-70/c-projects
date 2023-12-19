@@ -1,84 +1,11 @@
 #include <iostream>
-
+#include <string>
 
 using namespace std;
-
-int main(){
-
-int st;
-
-  int sum;
-
-cout<<"Enter the number of students who finished the semester : ";	
-	cin>> st;	
-
-	int students[st];
-	
-	
-for (int i = 0 ; i < st;i++ ) {
-      cout << "Enter the marks between 0 and 100 : ";
-       cin >>   students[i];
-    
-    sum += students[i];
-      
-   
-   if (students[i] < 0 || students[i] > 100) {
-                cout << "erorr enter 0 to 100 :" <<endl ;
-                 i--;
-            }
-       
-}
-
-   int maxmarks = students[0];
-for (int i = 1; i < st; ++i) {
-        if (students[i] > maxmarks) {
-            maxmarks = students[i];
-        }
-    }
- cout << "Max mark: " << maxmarks << endl;
-
-	
- int minmarks = students[0];
-for (int i = 1; i < st; ++i) {
-        if (students[i] < minmarks) {
-            minmarks = students[i];
-        }
-    }
- cout << "Min marks: " << minmarks << endl;
-
-	
-	
-	 double average = sum / st;
-    cout << " The Arithmetic avarage " << average << endl;
+int main() {
 
 
-
-	int maxstudents = 0;
-    for (int i = 0; i < st; ++i) {
-        if (students[i] > average) {
-           maxstudents++;
-        }
-    }
-	
-	cout<<"maxstudents :"<< maxstudents <<endl;
-
-
-
-
-
-	int minstudents = 0;
-    for (int i = 0; i < st; ++i) {
-        if (students[i] < average) {
-           minstudents++;
-        }
-    }
-	
-	cout<<"minstudents :"<< minstudents << endl;
-
-
-	
-	
-	int  acountNum = 123 , passowrd =1122;
+int  acountNum = 123 , passowrd =1122;
 int  Balance;
 int option;
 int amonun ;
