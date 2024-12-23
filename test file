@@ -1,0 +1,102 @@
+#include "HospitalMember4.h"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int choice;
+
+    do {
+        cout << "Select an option:" << endl;
+        cout << "1. Enter Doctor Data" << endl;
+        cout << "2. Enter Nurse Data" << endl;
+        cout << "3. Enter Patient Data" << endl;
+        cout << "4. Increase Doctor's Salary" << endl;
+        cout << "5. Decrease Doctor's Salary" << endl;
+        cout << "6. Increase Nurse's Salary" << endl;
+        cout << "7. Decrease Nurse's Salary" << endl;
+        cout << "8. Compare Doctors" << endl;
+        cout << "9. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number between 1 and 9: ";
+            cin >> choice;
+        }
+
+        switch (choice) {
+        case 1: {
+            Doctor doctor;
+            cin >> doctor;
+            doctor.display("HospitalMembers_dat");
+            break;
+        }
+        case 2: {
+            Nurse nurse;
+            cin >> nurse;
+            nurse.display("HospitalMembers_dat");
+            break;
+        }
+        case 3: {
+            Patient patient;
+            cin >> patient;
+            patient.display("HospitalMembers_dat");
+            break;
+        }
+        case 4: {
+            Doctor doctor;
+            cin >> doctor;
+            ++doctor;
+            doctor.display("HospitalMembers_dat");
+            break;
+        }
+        case 5: {
+            Doctor doctor;
+            cin >> doctor;
+            --doctor;
+            doctor.display("HospitalMembers_dat");
+            break;
+        }
+        case 6: {
+            Nurse nurse;
+            cin >> nurse;
+            ++nurse;
+            nurse.display("HospitalMembers_dat");
+            break;
+        }
+        case 7: {
+            Nurse nurse;
+            cin >> nurse;
+            --nurse;
+            nurse.display("HospitalMembers_dat");
+            break;
+        }
+        case 8: { 
+            Doctor doc1, doc2;
+            cout << "Enter data for Doctor 1:" << endl;
+            cin >> doc1;
+            cout << "Enter data for Doctor 2:" << endl;
+            cin >> doc2;
+            if (doc1 == doc2)
+                cout << "The doctors are the same." << endl;
+            else if (doc1 > doc2)
+                cout << "Doctor 1 has a greater ID than Doctor 2." << endl;
+            else
+                cout << "Doctor 2 has a greater ID than Doctor 1." << endl;
+            break;
+        }
+        case 9:
+            cout << "Exiting program..." << endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+            break;
+        }
+
+    } while (choice != 9);
+
+    return 0;
+}
