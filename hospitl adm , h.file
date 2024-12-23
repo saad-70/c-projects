@@ -1,0 +1,181 @@
+#pragma once
+#include <string>
+
+using namespace std;
+
+class HospitalMember {
+private:
+    string ID;
+    string Name;
+    string Address;
+    string ContactNumber;
+
+public:
+    HospitalMember(string iD = "un", string name = "un", string address = "un", string contactNumber = "un");
+
+    string getID()const;
+    void setID(const string& id);
+    string getName() const;
+    void setName(const string& name); 
+
+    string getAddress() const;
+    void setAddress(const string& address);
+
+    string getContactNumber() const;
+    void setContactNumber(const string& contactNumber);
+
+
+    bool operator==(const HospitalMember& other) const;
+
+    bool operator!=(const HospitalMember& other) const;
+    bool operator>(const HospitalMember& other) const;
+
+    bool operator<(const HospitalMember& other) const;
+
+
+    friend ostream& operator<<(ostream& os, const HospitalMember& member);
+    friend istream& operator>>(istream& is, HospitalMember& member);
+
+    void display(const string& HospitalMembers_dat) const;
+};
+
+
+class Doctor : public HospitalMember {
+private:
+    string Specialization;
+    double Salary;
+
+
+
+
+
+public:
+    Doctor(string iD = "un", string name = "un", string address = "un",
+        string contactNumber = "un", string specialization = "un", double salary = 0.0);
+
+
+
+    string getSpecialization() const;
+    void setSpecialization(const string& specialization);
+
+    double getSalary() const;
+    void setSalary(double salary);
+
+    Doctor& operator++();
+
+    Doctor& operator--();
+
+    void display(const string& HospitalMembers_dat) const;
+
+    friend ostream& operator<<(ostream& os, const Doctor& doctor);
+    friend istream& operator>>(istream& is, Doctor& doctor);
+
+
+
+
+
+
+
+};
+
+
+class Surgeon : public Doctor {
+private:
+    string SurgeryType;
+    int YearsOfExperience;
+
+public:
+    Surgeon(string iD = "un", string name = "un", string address = "un", string contactNumber = "un",
+        string specialization = "un", double salary = 0.0, string surgeryType = "un", int yearsOfExperience = 0);
+
+    string getSurgeryType() const;
+    void setSurgeryType(const string& surgeryType);
+
+    int getYearsOfExperience() const;
+    void setYearsOfExperience(int years);
+
+    friend ostream& operator<<(ostream& os, const Surgeon& surgeon);
+    friend istream& operator>>(istream& is, Surgeon& surgeon);
+};
+class GeneralPractitioner : public Doctor {
+private:
+    int ClinicHours;
+    int PatientLoad;
+public:
+    GeneralPractitioner(string iD = "un", string name = "un", string address = "un", string contactNumber = "un",
+        string specialization = "General Practice", double salary = 0.0, int clinicHours = 0, int patientLoad = 0);
+
+
+    int getClinicHours() const;
+    void setClinicHours(int hours);
+
+    int getPatientLoad() const;
+    void setPatientLoad(int load);
+
+    friend ostream& operator<<(ostream& os, const GeneralPractitioner& obj);
+    friend istream& operator>>(istream& is, GeneralPractitioner& );
+};
+
+
+
+
+class Nurse : public Doctor {
+private:
+    string Department;
+    double NurseSalary;
+
+public:
+
+    Nurse(string iD = "un", string name = "un", string address = "un",
+        string contactNumber = "un", string department = "un", 
+       double nurseSalary = 0.0);
+
+
+    string getDepartment() const;
+    void setDepartment(const string& department);
+
+
+    double getNurseSalary() const;
+    void setNurseSalary(double& nurseSalary);
+
+    void display(const string& HospitalMembers_dat) const;
+
+    friend ostream& operator<<(ostream& os, const Nurse& nurse);
+    friend istream& operator>>(istream& is, Nurse& nurse);
+
+};
+
+
+
+
+
+
+
+class Patient : public HospitalMember {
+private:
+    string MedicalRecordNumber;
+    string IllnessDescription;
+    Doctor doctorInCharge;
+
+public:
+
+    Patient(string medicalRecordNumber = "un", string illnessDescription = "un", Doctor doctor = Doctor());
+
+    string getMedicalRecordNumber() const;
+    void setMedicalRecordNumber(const string& recordNumber);
+
+    string getIllnessDescription() const;
+    void setIllnessDescription(const string& description);
+
+    Doctor getDoctorInCharge() const;
+    void setDoctorInCharge(const Doctor& doctor);
+
+
+    
+    friend ostream& operator<<(ostream& os, const Patient& patient);
+    friend istream& operator>>(istream& is, Patient& patient);
+
+    void display(const string& HospitalMembers_dat) const;
+};
+
+
